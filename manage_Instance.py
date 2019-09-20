@@ -11,7 +11,7 @@ ec2 = boto3.resource('ec2')
 
 def retrieve_instances_by_filter(filter_name, filter_values):
     instances = ec2.instances.filter(Filters=[{'Name': filter_name, 'Values': filter_values}])
-
+    return instances
 
 def retrieve_all_running_instances():
     instances = ec2.instances.filter(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
